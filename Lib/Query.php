@@ -22,7 +22,7 @@ class Query
      * @return $this
      * @throws \Exception
      */
-    public function query($queryToPrepare, $params)
+    public function query($queryToPrepare, $params = [])
     {
         $this->statement = $this->pdo->prepare($queryToPrepare);
 
@@ -38,7 +38,7 @@ class Query
      */
     public function getFirstResult()
     {
-        return $this->statement->fetch();
+        return $this->statement->fetch(\PDO::FETCH_ASSOC);
     }
 
     public function getAllResults()

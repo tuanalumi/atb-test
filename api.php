@@ -1,15 +1,11 @@
 <?php
 
-$action = $_GET['action'];
+require_once 'vendor/autoload.php';
 
-if ($action === 'get_token') {
-    // authenticate with username/password
+$controller = new \Lib\FrontController();
 
-}
-
-$token = $_GET['token'];
-
-if (empty($token)) {
-    // return 403
-}
-
+$controller
+    ->setAction($_GET['action'] ?? null)
+    ->setToken($_GET['token'] ?? null)
+    ->run()
+;
