@@ -81,6 +81,10 @@ class FrontController
      */
     private function updateAction($user)
     {
+        if (empty($_POST)) {
+            Response::error('No data to update');
+        }
+
         // build query
         $query  = [];
         $params = [
