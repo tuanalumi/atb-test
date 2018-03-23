@@ -10,6 +10,7 @@ class Token
      */
     public static function generate()
     {
+        // TODO: use JWT
         $pool = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
 
         $str = '';

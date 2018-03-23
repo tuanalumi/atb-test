@@ -91,6 +91,10 @@ class FrontController
             ':userId' => $user['id']
         ];
         foreach ($_POST as $field => $value) {
+            if ($field == 'email') {
+                Response::error('Email can not be updated');
+            }
+
             $query[] = "$field = :{$field}";
 
             $params[":{$field}"] = $value;
